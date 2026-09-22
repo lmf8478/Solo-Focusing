@@ -1,61 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Stillpoint | Focus timer</title>
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
-    <main class="app">
-      <header class="topbar">
-        <div class="brand"><span class="brand-mark">S</span><span>Stillpoint</span></div>
-        <div class="status"><span class="status-dot"></span><span id="sessionStatus">Ready to focus</span></div>
-      </header>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Stillpoint | Focus timer</title>
+		<link rel="stylesheet" href="style.css" />
+	</head>
+	<body>
+		<main class="app">
+			<header class="topbar">
+				<div class="brand"><span class="brand-mark">S</span><span>Stillpoint</span></div>
+				<div class="status"><span class="status-dot"></span><span id="sessionStatus">Ready to focus</span></div>
+			</header>
 
-      <section class="hero">
-        <div class="eyebrow">FOCUS SESSION <span id="sessionCount">01</span></div>
-        <h1>Make room for<br /><em>one thing.</em></h1>
-        <p class="intro">Set a rhythm, press start, and let the rest of the world wait.</p>
-      </section>
+			<section class="hero">
+				<div class="eyebrow">FOCUS SESSION <span id="sessionCount">01</span></div>
+				<h1>Make room for<br /><em>one thing.</em></h1>
+				<p class="intro">Set a rhythm, press start, and let the rest of the world wait.</p>
+			</section>
 
-      <section class="workspace">
-        <div class="timer-panel">
-          <div class="timer-box">
-            <div class="timer-label" id="modeText">Deep work</div>
-            <div id="timer">25:00</div>
-            <div class="progress-track"><span id="progressBar"></span></div>
-            <p id="timeHint">Your focus session starts when you are ready.</p>
-          </div>
+			<section class="workspace">
+				<div class="timer-panel">
+					<div class="timer-box">
+						<div class="timer-label" id="modeText">Deep work</div>
+						<div id="timer">25:00</div>
+						<div class="progress-track"><span id="progressBar"></span></div>
+						<p id="timeHint">Your focus session starts when you are ready.</p>
+					</div>
 
-          <div class="controls">
-            <button id="startBtn" class="primary"><span class="button-icon">▶</span> Start session</button>
-            <button id="pauseBtn" class="secondary">Pause</button>
-            <button id="resetBtn" class="icon-button" aria-label="Reset timer" title="Reset timer">↺</button>
-          </div>
-        </div>
+					<div class="controls">
+						<button id="startBtn" class="primary"><span class="button-icon">▶</span> Start session</button>
+						<button id="pauseBtn" class="secondary">Pause</button>
+						<button id="resetBtn" class="icon-button" aria-label="Reset timer" title="Reset timer">↺</button>
+					</div>
+				</div>
 
-        <aside class="music-panel">
-          <div class="panel-heading"><div><span class="eyebrow">SOUNDTRACK</span><h2>Set the tone</h2></div><span class="music-note">♫</span></div>
-          <p class="panel-copy">Bring a local track into your focus space.</p>
-          <label class="file-picker" for="musicFile"><span>＋</span><span id="fileName">Choose an audio file</span></label>
-          <input id="musicFile" type="file" accept="audio/*" />
-          <button id="toggleMusicBtn" class="music-button" disabled><span>▶</span> Play soundtrack</button>
-          <audio id="musicPlayer" controls></audio>
-        </aside>
-      </section>
+				<aside class="music-panel">
+					<div class="panel-heading"><div><span class="eyebrow">SOUNDTRACK</span><h2>Set the tone</h2></div><span class="music-note">♫</span></div>
+					<p class="panel-copy">Bring a local track into your focus space.</p>
+					<label class="file-picker" for="musicFile"><span>＋</span><span id="fileName">Choose an audio file</span></label>
+					<input id="musicFile" type="file" accept="audio/*" />
+					<button id="toggleMusicBtn" class="music-button" disabled><span>▶</span> Play soundtrack</button>
+					<audio id="musicPlayer" controls></audio>
+				</aside>
+			</section>
 
-      <section class="settings-panel">
-        <div><span class="eyebrow">SESSION SETTINGS</span><h2>Build your rhythm</h2></div>
-        <div class="settings">
-          <label>Focus length <span class="input-wrap"><input id="studyMinutes" type="number" min="1" max="120" value="25" /><small>min</small></span></label>
-          <label>Break length <span class="input-wrap"><input id="breakMinutes" type="number" min="1" max="60" value="5" /><small>min</small></span></label>
-        </div>
-      </section>
+			<section class="settings-panel">
+				<div><span class="eyebrow">SESSION SETTINGS</span><h2>Build your rhythm</h2></div>
+				<div class="settings">
+					<label>Focus length <span class="input-wrap"><input id="studyMinutes" type="number" min="1" max="120" value="25" /><small>min</small></span></label>
+					<label>Break length <span class="input-wrap"><input id="breakMinutes" type="number" min="1" max="60" value="5" /><small>min</small></span></label>
+				</div>
+			</section>
 
-      <footer>Small steps, held steadily.</footer>
-    </main>
+			<footer>Small steps, held steadily.</footer>
+		</main>
 
-    <script src="script.js"></script>
-  </body>
+		<script src="script.js"></script>
+	</body>
 </html>
