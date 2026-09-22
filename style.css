@@ -40,6 +40,7 @@ h1 em { color: var(--coral); font-style: italic; }
 .progress-track { height: 5px; background: #e3e7df; overflow: hidden; }
 #progressBar { display: block; width: 0%; height: 100%; background: var(--coral); transition: width .4s linear; }
 #timeHint { color: var(--muted); font: .78rem Verdana, sans-serif; }
+.completion-note { color: var(--coral); font: italic .9rem Georgia, serif; }
 .controls { display: flex; justify-content: center; gap: .7rem; align-items: center; }
 button { border: 0; cursor: pointer; font: 700 .78rem Verdana, sans-serif; transition: transform .15s, background .2s; }
 button:hover:not(:disabled) { transform: translateY(-2px); }
@@ -54,6 +55,8 @@ h2 { margin: .55rem 0 0; font-size: 1.7rem; font-weight: 400; }
 #musicFile { display: none; }
 .music-button { width: 100%; padding: 1rem; color: var(--ink); background: #e5ebe3; }
 .music-button:disabled { cursor: not-allowed; opacity: .5; }
+.spotify-link { display: block; width: 100%; margin-top: .7rem; padding: 1rem; color: #fff; background: #1f8f52; text-align: center; text-decoration: none; font: 700 .78rem Verdana, sans-serif; }
+.spotify-link:hover { background: #177542; }
 #musicPlayer { width: 100%; margin-top: 1rem; }
 .settings-panel { margin-top: 1.3rem; padding: 1.5rem 2rem; justify-content: space-between; align-items: center; gap: 2rem; }
 .settings { display: flex; gap: 1.3rem; }

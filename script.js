@@ -1,5 +1,6 @@
 const timerDisplay = document.getElementById('timer');
 const modeText = document.getElementById('modeText');
+const studyHoursInput = document.getElementById('studyHours');
 const studyMinutesInput = document.getElementById('studyMinutes');
 const breakMinutesInput = document.getElementById('breakMinutes');
 const startBtn = document.getElementById('startBtn');
@@ -13,8 +14,14 @@ const sessionCount = document.getElementById('sessionCount');
 const sessionStatus = document.getElementById('sessionStatus');
 const timeHint = document.getElementById('timeHint');
 const fileName = document.getElementById('fileName');
+const completionNote = document.getElementById('completionNote');
 
-let totalSeconds = Number(studyMinutesInput.value) * 60;
+function getFocusDurationSeconds() {
+  const totalMinutes = Number(studyHoursInput.value) * 60 + Number(studyMinutesInput.value);
+  return Math.max(1, totalMinutes * 60);
+}
+
+let totalSeconds = getFocusDurationSeconds();
 let remainingSeconds = totalSeconds;
 let timerId = null;
 let isRunning = false;
@@ -30,9 +37,9 @@ function formatTime(totalSecondsLeft) {
 function updateDisplay() {
   timerDisplay.textContent = formatTime(remainingSeconds);
   modeText.textContent = isBreakMode ? 'Reset and recharge' : 'Deep work';
-  const currentTotal = (isBreakMode ? Number(breakMinutesInput.value) : Number(studyMinutesInput.value)) * 60;
+  const currentTotal = isBreakMode ? Number(breakMinutesInput.value) * 60 : getFocusDurationSeconds();
   progressBar.style.width = `${Math.max(0, Math.min(100, ((currentTotal - remainingSeconds) / currentTotal) * 100))}%`;
-  document.title = `${formatTime(remainingSeconds)} | Stillpoint`;
+  document.title = `${formatTime(remainingSeconds)} | Solo Focusing`;
 }
 
 function stopTimer() {
@@ -50,7 +57,9 @@ function finishSession() {
   audio.src = 'data:audio/wav;base64,UklGRiQAAABXQVZFZm10IBAAAAABAAEAESsAACJWAAACABAAZGF0YQAAAAA=';
   audio.play().catch(() => {});
 
+  const focusSessionCompleted = !isBreakMode;
   isBreakMode = !isBreakMode;
+  completionNote.hidden = !focusSessionCompleted;
   if (!isBreakMode) completedSessions += 1;
   sessionCount.textContent = String(completedSessions + 1).padStart(2, '0');
   const nextMinutes = isBreakMode ? Number(breakMinutesInput.value) : Number(studyMinutesInput.value);
@@ -72,6 +81,7 @@ function tick() {
 function startTimer() {
   if (isRunning) return;
   isRunning = true;
+  completionNote.hidden = true;
   sessionStatus.textContent = isBreakMode ? 'Break in progress' : 'Focus in progress';
   timeHint.textContent = isBreakMode ? 'Step away for a moment.' : 'You are exactly where you need to be.';
   timerId = setInterval(tick, 1000);
@@ -83,8 +93,9 @@ function pauseTimer() {
 
 function resetTimer() {
   stopTimer();
+  completionNote.hidden = true;
   isBreakMode = false;
-  totalSeconds = Number(studyMinutesInput.value) * 60;
+  totalSeconds = getFocusDurationSeconds();
   remainingSeconds = totalSeconds;
   sessionStatus.textContent = 'Ready to focus';
   timeHint.textContent = 'Your focus session starts when you are ready.';
@@ -95,12 +106,15 @@ startBtn.addEventListener('click', startTimer);
 pauseBtn.addEventListener('click', pauseTimer);
 resetBtn.addEventListener('click', resetTimer);
 
-studyMinutesInput.addEventListener('input', () => {
+function updateFocusDuration() {
   if (!isBreakMode && !isRunning) {
-    remainingSeconds = Number(studyMinutesInput.value) * 60;
+    remainingSeconds = getFocusDurationSeconds();
     updateDisplay();
   }
-});
+}
+
+studyHoursInput.addEventListener('input', updateFocusDuration);
+studyMinutesInput.addEventListener('input', updateFocusDuration);
 
 breakMinutesInput.addEventListener('input', () => {
   if (isBreakMode && !isRunning) {

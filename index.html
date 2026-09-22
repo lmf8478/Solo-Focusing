@@ -3,13 +3,14 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Stillpoint | Focus timer</title>
+		<title>Solo Focusing</title>
+        <link rel="icon" type="image/png" href="favicon.png" />
 		<link rel="stylesheet" href="style.css" />
 	</head>
 	<body>
 		<main class="app">
 			<header class="topbar">
-				<div class="brand"><span class="brand-mark">S</span><span>Stillpoint</span></div>
+				<div class="brand"><span class="brand-mark">S</span><span>Solo Focusing</span></div>
 				<div class="status"><span class="status-dot"></span><span id="sessionStatus">Ready to focus</span></div>
 			</header>
 
@@ -26,6 +27,7 @@
 						<div id="timer">25:00</div>
 						<div class="progress-track"><span id="progressBar"></span></div>
 						<p id="timeHint">Your focus session starts when you are ready.</p>
+						<p id="completionNote" class="completion-note" hidden>Focus session complete. Excellent work.</p>
 					</div>
 
 					<div class="controls">
@@ -41,6 +43,7 @@
 					<label class="file-picker" for="musicFile"><span>＋</span><span id="fileName">Choose an audio file</span></label>
 					<input id="musicFile" type="file" accept="audio/*" />
 					<button id="toggleMusicBtn" class="music-button" disabled><span>▶</span> Play soundtrack</button>
+					<a class="spotify-link" href="https://open.spotify.com/" target="_blank" rel="noopener noreferrer"><span>♫</span> Open Spotify</a>
 					<audio id="musicPlayer" controls></audio>
 				</aside>
 			</section>
@@ -48,7 +51,7 @@
 			<section class="settings-panel">
 				<div><span class="eyebrow">SESSION SETTINGS</span><h2>Build your rhythm</h2></div>
 				<div class="settings">
-					<label>Focus length <span class="input-wrap"><input id="studyMinutes" type="number" min="1" max="120" value="25" /><small>min</small></span></label>
+					<label>Focus length <span class="input-wrap"><input id="studyHours" type="number" min="0" max="23" value="0" /><small>hr</small><input id="studyMinutes" type="number" min="0" max="59" value="25" /><small>min</small></span></label>
 					<label>Break length <span class="input-wrap"><input id="breakMinutes" type="number" min="1" max="60" value="5" /><small>min</small></span></label>
 				</div>
 			</section>
