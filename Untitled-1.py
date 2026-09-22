@@ -6,9 +6,9 @@ import webbrowser
 
 project_folder = Path(__file__).resolve().parent
 handler = functools.partial(SimpleHTTPRequestHandler, directory=str(project_folder))
-server = ThreadingHTTPServer(("localhost", 0), handler)
+server = ThreadingHTTPServer(("127.0.0.1", 8000), handler)
 port = server.server_address[1]
-website_url = f"http://localhost:{port}"
+website_url = f"http://127.0.0.1:{port}"
 
 print(f"Focus timer running at {website_url}")
 print("Press Ctrl+C to stop the website.")

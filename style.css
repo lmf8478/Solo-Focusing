@@ -55,9 +55,39 @@ h2 { margin: .55rem 0 0; font-size: 1.7rem; font-weight: 400; }
 #musicFile { display: none; }
 .music-button { width: 100%; padding: 1rem; color: var(--ink); background: #e5ebe3; }
 .music-button:disabled { cursor: not-allowed; opacity: .5; }
-.spotify-link { display: block; width: 100%; margin-top: .7rem; padding: 1rem; color: #fff; background: #1f8f52; text-align: center; text-decoration: none; font: 700 .78rem Verdana, sans-serif; }
+.music-service-links { display: flex; gap: .35rem; margin-top: .7rem; }
+.spotify-link, .youtube-link { display: block; flex: 1; padding: .7rem .35rem; color: #fff; text-align: center; text-decoration: none; font: 700 .62rem Verdana, sans-serif; }
+.spotify-link { background: #1f8f52; }
 .spotify-link:hover { background: #177542; }
+.youtube-link { background: #d34b4b; }
+.youtube-link:hover { background: #ae3737; }
+.active-platform { margin: .55rem 0 0; color: var(--muted); font: .65rem Verdana, sans-serif; text-align: center; }
+.spotify-controls { margin-top: 1rem; padding-top: 1rem; border-top: 1px solid var(--line); }
+.spotify-login, .spotify-search button { width: 100%; padding: .85rem; color: #fff; background: #1f8f52; }
+.spotify-account-actions { display: flex; gap: .4rem; margin-top: .4rem; }
+.spotify-account-actions button { flex: 1; padding: .6rem .4rem; color: var(--ink); background: #e5ebe3; font: 700 .65rem Verdana, sans-serif; }
+.profile-controls { display: grid; grid-template-columns: 1fr 1fr; gap: .4rem; margin: .8rem 0; }
+.profile-controls button { padding: .55rem .35rem; color: var(--ink); background: #e5ebe3; font-size: .6rem; }
+.spotify-status { margin: .7rem 0; color: var(--muted); font: .68rem/1.4 Verdana, sans-serif; }
+.spotify-search { display: flex; gap: .4rem; }
+.spotify-search input { min-width: 0; width: auto; flex: 1; padding: .7rem; border: 1px solid var(--line); font: .75rem Verdana, sans-serif; }
+.spotify-search button { width: auto; }
+.spotify-results { display: grid; gap: .4rem; margin-top: .7rem; }
+.spotify-track { display: flex; gap: .5rem; align-items: center; width: 100%; padding: .4rem; border: 1px solid var(--line); color: var(--ink); background: transparent; text-align: left; }
+.spotify-track:hover { background: #edf1eb; }
+.spotify-track img, .playlist-cover-placeholder { width: 3.2rem; height: 3.2rem; flex: 0 0 3.2rem; object-fit: cover; }
+.playlist-cover-placeholder { display: grid; place-items: center; color: var(--coral); background: #e5ebe3; font-size: 1.4rem; }
+.spotify-track span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font: .68rem Verdana, sans-serif; }
+.playlist-pagination { display: flex; justify-content: space-between; align-items: center; gap: .5rem; margin-top: .8rem; color: var(--muted); font: .65rem Verdana, sans-serif; }
+.playlist-pagination button { padding: .55rem .7rem; color: var(--ink); background: #e5ebe3; font-size: .65rem; }
+.playlist-pagination button:disabled { cursor: not-allowed; opacity: .45; }
 #musicPlayer { width: 100%; margin-top: 1rem; }
+.current-audio-bar { display: flex; justify-content: space-between; align-items: center; gap: 1rem; margin-top: 1.3rem; padding: 1rem 1.3rem; background: #e5ebe3; border: 1px solid var(--line); }
+.current-audio-label { display: flex; flex-direction: column; gap: .35rem; }
+.current-audio-label strong { font: 400 1.1rem Georgia, serif; }
+.current-audio-controls { display: flex; gap: .5rem; }
+.current-audio-controls button { padding: .75rem 1rem; color: var(--ink); background: var(--panel); }
+.current-audio-controls button:hover { background: #fff; }
 .settings-panel { margin-top: 1.3rem; padding: 1.5rem 2rem; justify-content: space-between; align-items: center; gap: 2rem; }
 .settings { display: flex; gap: 1.3rem; }
 label { display: flex; flex-direction: column; gap: .5rem; color: var(--muted); font: .7rem Verdana, sans-serif; text-transform: uppercase; letter-spacing: .08em; }
@@ -73,4 +103,7 @@ footer { justify-content: flex-end; padding-top: 1.2rem; color: var(--muted); fo
 	.settings { justify-content: space-between; }
 	.settings-panel { align-items: flex-start; }
 	.timer-panel, .music-panel { padding: 1.3rem; }
+	.current-audio-bar { align-items: flex-start; flex-direction: column; }
+	.current-audio-controls { width: 100%; }
+	.current-audio-controls button { flex: 1; }
 }
